@@ -30,7 +30,7 @@ class MacChanger:
     @staticmethod
     def get_current_mac(interface):
         ifconfig_result = subprocess.check_output(["ifconfig", interface])
-        mac_search_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", ifconfig_result)
+        mac_search_result = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", str(ifconfig_result))
         if mac_search_result:
             return mac_search_result.group(0)
         else:
